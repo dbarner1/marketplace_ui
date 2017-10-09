@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       <Main url='https://barner-marketplace-api.herokuapp.com/users'/>
+        <Main url='https://barner-marketplace-api.herokuapp.com/users'/>
       </div>
     );
   }

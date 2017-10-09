@@ -25,12 +25,12 @@ export default Main;
 
 var results = document.getElementsByClassName('Main');
 
-
 function handleClick(e) {
   fetch('https://barner-marketplace-api.herokuapp.com/users.json')
   .then(function(response) {return response.json();})
   .then(function(json) {
     json.forEach(function(name) {
+      results[0].innerHTML += '<br/>';      
       results[0].innerHTML += name.first_name;
       results[0].innerHTML += '<br/>';
     });
