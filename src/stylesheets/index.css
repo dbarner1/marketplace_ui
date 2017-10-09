@@ -111,8 +111,8 @@ PORTFOLIO**********************************
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 50%;
-    margin: 100px auto; }
+    width: 100%;
+    margin: 20px auto; }
   .ForSale .product {
     border: 1px solid black;
     width: 170px;
