@@ -1,7 +1,8 @@
 import React from 'react';
-import './stylesheets/index.css';
 import Header from './components/header.js'
 import Main from './components/main.js'
+import './stylesheets/index.css';
+
 
 class App extends React.Component {
   constructor() {

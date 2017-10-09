@@ -3,8 +3,10 @@ Resets*************************************
 ******************************************/
 body {
   margin: 0;
-  color: black;
-  font-family: 'Open Sans', sans-serif; }
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  background-image: url("../images/mobile_background.png");
+  background-size: 100%; }
 
 p, h1, h2, h3, h4, h5, h6 {
   margin: 0; }
@@ -12,9 +14,16 @@ p, h1, h2, h3, h4, h5, h6 {
 /******************************************
 Header*************************************
 ******************************************/
+.active {
+  color: green; }
+
+.mdl-layout__tab-bar, .mdl-layout__tab {
+  height: 40px; }
+
 header {
   width: 100vw;
-  height: 10vh; }
+  height: 10vh;
+  margin-bottom: 25px; }
   header nav {
     display: flex;
     flex-direction: row;
@@ -22,48 +31,67 @@ header {
     background-color: rgba(0, 0, 0, 0.2);
     justify-content: center;
     align-items: center; }
+    header nav .checkout {
+      color: #ff9900; }
+    header nav .large {
+      font-size: 40px; }
     header nav a {
-      font-size: 18px;
+      font-size: 60px;
       text-decoration: none;
       color: white;
-      padding: 5px; }
+      padding: 10px 40px; }
       header nav a:hover {
         background-color: rgba(0, 0, 0, 0.5);
         transition: .1s, ease-in; }
     header nav ul {
       display: flex;
-      flex-direction: row; }
+      flex-direction: row;
+      padding: 0; }
       header nav ul li {
         display: flex;
         flex-direction: row;
         list-style: none;
-        justify-content: center;
-        margin: 0 10px; }
-
-.phoneImage {
-  width: 40px;
-  height: 40px; }
+        justify-content: center; }
 
 /******************************************
 CTA****************************************
 ******************************************/
+.ForSaleHeroHeader {
+  width: 100%;
+  margin: 40px 0; }
+
 #Home {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   margin: 0 auto;
   padding-bottom: 0vh;
+  text-align: center;
+  align-items: center;
   width: 100vw;
   height: 100vh; }
+  #Home .buttonHero {
+    font-size: 50px; }
+  #Home h4 {
+    margin-top: -20px;
+    margin-bottom: 100px;
+    font-size: 40px; }
+  #Home button {
+    margin: 20px;
+    width: 200px;
+    height: 50px; }
+  #Home .logo {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto; }
   #Home #HomeHero {
     width: 100%;
     font-size: 8vw;
     height: 10vh;
-    margin-top: 10vh;
-    text-align: center; }
+    text-align: center;
+    margin-top: 20vh; }
   #Home #CtaCallToAction {
     display: flex;
     flex-direction: column;
@@ -113,22 +141,18 @@ PORTFOLIO**********************************
     justify-content: space-around;
     width: 100%;
     margin: 20px auto; }
-  .ForSale .product {
-    border: 1px solid black;
-    width: 170px;
-    min-height: 170px;
-    margin-top: 20px; }
-    .ForSale .product .productImage {
-      width: 80%;
-      display: block;
-      margin: 0 auto;
-      padding: 10px; }
-  .ForSale button {
-    background-color: orange;
-    border: 0;
-    width: 100%;
-    height: 5vh;
-    margin-top: 1vh; }
+    .ForSale .Products button {
+      width: 60vw; }
+    .ForSale .Products .product {
+      border: 1px solid black;
+      width: 170px;
+      min-height: 170px;
+      margin-top: 20px; }
+      .ForSale .Products .product .productImage {
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+        padding: 10px; }
 
 /******************************************
 Contact Page*******************************
