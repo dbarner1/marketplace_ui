@@ -32,6 +32,7 @@ header {
   margin-bottom: 25px; }
   header nav {
     width: 100vw;
+    height: 12vh;
     display: flex;
     flex-direction: row;
     font-size: 2vw;
@@ -104,7 +105,7 @@ CTA****************************************
   #Home .copyright {
     color: lightgrey; }
   #Home .HeroBottomText {
-    margin-top: 30px; }
+    margin-top: 10px; }
   #Home #CtaCallToAction {
     display: flex;
     flex-direction: column;
