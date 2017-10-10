@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Home from './Home.js';
 import ForSale from './ForSale.js';
 import Contact from './Contact.js';
@@ -8,7 +8,7 @@ class Main extends Component {
   constructor() {
     super();
     this.state = {
-      aisles: null
+      aisles: ''
     };
   }
 

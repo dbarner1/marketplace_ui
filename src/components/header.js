@@ -15,7 +15,3 @@ const Header = () => (
 )
 
 export default Header;
-
-function shouldComponentUpdate() {
-
-}

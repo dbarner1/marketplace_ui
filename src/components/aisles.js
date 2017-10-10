@@ -1,8 +1,5 @@
 import React from 'react';
 import {GridList, GridTile} from 'material-ui/GridList';
-import IconButton from 'material-ui/IconButton';
-import Subheader from 'material-ui/Subheader';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const styles = {
@@ -49,7 +46,7 @@ class Aisles extends React.Component {
       >
         {tilesData.map((tile) => (
           <GridTile key={tile.img} title={tile.title}>
-            <img src={tile.img} />
+            <img alt='aisle' src={tile.img} />
           </GridTile>
         ))}
       </GridList>

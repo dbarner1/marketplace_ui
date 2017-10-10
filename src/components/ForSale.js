@@ -1,6 +1,5 @@
 import React from 'react';
 import '../stylesheets/index.css';
-import Button from './button.js';
 import Aisles from './aisles';
 
 class ForSale extends React.Component {
