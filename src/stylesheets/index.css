@@ -66,10 +66,6 @@ header {
 /******************************************
 CTA****************************************
 ******************************************/
-.ForSaleHeroHeader {
-  width: 100%;
-  margin: 40px 0; }
-
 #Home {
   display: flex;
   flex-direction: column;
@@ -148,6 +144,9 @@ PORTFOLIO**********************************
   width: 100vw;
   min-height: 100vh;
   text-align: center; }
+  .ForSale .ForSaleHeroHeader {
+    width: 100%;
+    margin: 20px 0; }
   .ForSale .Products {
     display: flex;
     flex-direction: row;

@@ -99,10 +99,7 @@ header {
 CTA****************************************
 ******************************************/
 
-.ForSaleHeroHeader {
-  width: 100%;
-  margin:40px 0;
-}
+
 
 #Home {
   display: flex;
@@ -207,6 +204,11 @@ PORTFOLIO**********************************
   width: 100vw;
   min-height: 100vh;
   text-align: center;
+
+  .ForSaleHeroHeader {
+    width: 100%;
+    margin:20px 0;
+  }
 
   .Products {
     display: flex;
