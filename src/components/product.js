@@ -8,7 +8,7 @@ class ForSale extends React.Component {
   componentWillMount() {
     var Products = document.getElementsByClassName('Products');
 
-    fetch('https://barner-marketplace-api.herokuapp.com/products.json')
+    fetch('https://barner-marketplace-api.herokuapp.com/aisles.json')
     .then(function(response) {return response.json();})
     .then(function(json) {
       json.forEach(function(name) {

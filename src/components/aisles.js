@@ -19,29 +19,28 @@ const styles = {
   },
 };
 
-const tilesData = [
+var tilesData = [
   {
     img: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Fruits_and_vegetables_at_market.jpg',
-    title: 'Veggies'
+    title: ''
   },
   {
     img: 'https://upload.wikimedia.org/wikipedia/commons/1/13/HK_Kwun_Tong_Shui_Wo_Street_Market_Cold_Meats.JPG',
-    title: 'Meats'
+    title: ''
   },
   {
     img: 'https://c1.staticflickr.com/9/8520/8508069576_c95a895136_b.jpg',
-    title: 'Canned Goods',
+    title: ''
   },
   {
     img: 'https://www.army.mil/e2/c/images/2013/02/07/281338/size0.jpg',
-    title: 'Prepared Foods'
+    title: ''
   }
 ];
 
-/**
- * A simple example of a scrollable `GridList` containing a [Subheader](/#/components/subheader).
- */
-const Aisles = () => (
+class Aisles extends React.Component {
+  render() {
+    return (
   <MuiThemeProvider>
     <div className="centered" style={styles.root}>
       <GridList
@@ -49,16 +48,14 @@ const Aisles = () => (
         style={styles.gridList}
       >
         {tilesData.map((tile) => (
-          <GridTile
-            key={tile.img}
-            title={tile.title}
-          >
+          <GridTile key={tile.img} title={tile.title}>
             <img src={tile.img} />
           </GridTile>
         ))}
       </GridList>
     </div>
   </MuiThemeProvider>
-);
+)}
+}
 
 export default Aisles;
