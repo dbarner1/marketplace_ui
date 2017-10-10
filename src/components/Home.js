@@ -10,8 +10,17 @@ class Home extends React.Component {
     return (
       <div id="Home">
         <img className="logo" alt='logo' src={ Logo } />
-        <h4>From sun-up to fork-down</h4>
-        <Link to='/forsale'><RaisedButton /></Link>
+        <div className="HeroText">
+          <h4>From Sun Up</h4>
+          <h4>To Fork Down</h4>
+        </div>
+        <Link to='/forsale'><RaisedButton className="HeroButton"  /></Link>
+        <div className="HeroBottomText">
+          <p>Never processed. Never compromised.</p>
+          <p>Always.</p>
+          <br/>
+          <p className="copyright">Barner Builds 2017</p>
+        </div>
       </div>
     )
   }

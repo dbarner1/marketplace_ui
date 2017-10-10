@@ -6,7 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 const style = {
   margin: 8,
   height: 100,
-  width: 500,
+  width: 280
 };
 
 const RaisedButtonHero = () => (

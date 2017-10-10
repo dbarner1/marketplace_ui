@@ -10,9 +10,10 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
+    width: 330
   },
   gridList: {
-    width: 500,
+    width: 325,
     height: 450,
     overflowY: 'auto',
   },
@@ -42,16 +43,15 @@ const tilesData = [
  */
 const Aisles = () => (
   <MuiThemeProvider>
-    <div style={styles.root}>
+    <div className="centered" style={styles.root}>
       <GridList
-        cellHeight={180}
+        cellHeight={160}
         style={styles.gridList}
       >
         {tilesData.map((tile) => (
           <GridTile
             key={tile.img}
             title={tile.title}
-            actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
           >
             <img src={tile.img} />
           </GridTile>
