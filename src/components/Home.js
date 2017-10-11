@@ -15,7 +15,7 @@ class Home extends React.Component {
           <h4>To Fork Down</h4>
         </div>
         <Link to='/forsale'><RaisedButton className="HeroButton"  /></Link>
-        <div className="HeroBottomText">
+        <div id="HeroBottomText" className="HeroBottomText">
           <p>Never processed. Never compromised.</p>
           <p>Always.</p>
           <br/>

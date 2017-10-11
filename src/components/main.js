@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './Home.js';
 import ForSale from './ForSale.js';
 import Contact from './Contact.js';
+import Product from './product.js';
 
 class Main extends Component {
   constructor() {
@@ -10,15 +11,6 @@ class Main extends Component {
     this.state = {
       aisles: ''
     };
-  }
-
-  componentDidMount() {
-    fetch('https://barner-marketplace-api.herokuapp.com/aisles.json')
-      .then(response => response.json())
-      .then(json => {
-        this.setState({aisles: json});
-      });
-
   }
 
   render() {
@@ -30,12 +22,14 @@ class Main extends Component {
               path='/'
               render={routeProps => <Home {...routeProps} />}
           />
-          <Route path='/forsale' component={ForSale}/>
+          <Route exact path='/forsale' component={ForSale}/>
+          <Route path='/forsale/:key' component={Product}/>
           <Route path='/contact' component={Contact}/>
         </Switch>
       </div>
     );
   }
 }
+
 
 export default Main;

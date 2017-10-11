@@ -1,45 +1,65 @@
-import { createStore } from 'redux'
 
-/**
- * This is a reducer, a pure function with (state, action) => state signature.
- * It describes how an action transforms the state into the next state.
- *
- * The shape of the state is up to you: it can be a primitive, an array, an object,
- * or even an Immutable.js data structure. The only important part is that you should
- * not mutate the state object, but return a new object if the state changes.
- *
- * In this example, we use a `switch` statement and strings, but you can use a helper that
- * follows a different convention (such as function maps) if it makes sense for your
- * project.
- */
-function counter(state = 0, action) {
-  switch (action.type) {
-  case 'INCREMENT':
-    return state + 1
-  case 'DECREMENT':
-    return state - 1
-  default:
-    return state
-  }
-}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redux basic example</title>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <p>
+        Clicked: <span id="value">0</span> times
+        <button id="increment">+</button>
+        <button id="decrement">-</button>
+        <button id="incrementIfOdd">Increment if odd</button>
+        <button id="incrementAsync">Increment async</button>
+      </p>
+    </div>
+    <script>
 
-// Create a Redux store holding the state of your app.
-// Its API is { subscribe, dispatch, getState }.
-let store = createStore(counter)
+      function counter(state, action) {  //ties action type to state change
+        if (typeof state === 'undefined') {
+          return 0
+        }
+        switch (action.type) {
+          case 'INCREMENT':
+            return state + 1
+          case 'DECREMENT':
+            return state - 1
+          default:
+            return state
+        }
+      }
+      var store = Redux.createStore(counter)     //creates store
 
-// You can use subscribe() to update the UI in response to state changes.
-// Normally you'd use a view binding library (e.g. React Redux) rather than subscribe() directly.
-// However it can also be handy to persist the current state in the localStorage.
+      var valueEl = document.getElementById('value') //displays state change.
+      function render() {
+        valueEl.innerHTML = store.getState().toString()
+      }
+      render()
+      store.subscribe(render)
 
-store.subscribe(() =>
-  console.log(store.getState())
-)
 
-// The only way to mutate the internal state is to dispatch an action.
-// The actions can be serialized, logged or stored and later replayed.
-store.dispatch({ type: 'INCREMENT' })
-// 1
-store.dispatch({ type: 'INCREMENT' })
-// 2
-store.dispatch({ type: 'DECREMENT' })
-// 1
+      document.getElementById('increment')  //t
+        .addEventListener('click', function () {
+          store.dispatch({ type: 'INCREMENT' })
+        })
+      document.getElementById('decrement')
+        .addEventListener('click', function () {
+          store.dispatch({ type: 'DECREMENT' })
+        })
+      document.getElementById('incrementIfOdd')
+        .addEventListener('click', function () {
+          if (store.getState() % 2 !== 0) {
+            store.dispatch({ type: 'INCREMENT' })
+          }
+        })
+      document.getElementById('incrementAsync')
+        .addEventListener('click', function () {
+          setTimeout(function () {
+            store.dispatch({ type: 'INCREMENT' }) //Ties event to action type
+          }, 1000)
+        })
+    </script>
+  </body>
+</html>
