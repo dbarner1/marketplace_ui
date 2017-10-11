@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './Home.js';
 import ForSale from './ForSale.js';
 import Contact from './Contact.js';
-import Product from './product.js';
 
 class Main extends Component {
   constructor() {
@@ -22,8 +21,7 @@ class Main extends Component {
               path='/'
               render={routeProps => <Home {...routeProps} />}
           />
-          <Route exact path='/forsale' component={ForSale}/>
-          <Route path='/forsale/:key' component={Product}/>
+          <Route path='/forsale' component={ForSale}/>
           <Route path='/contact' component={Contact}/>
         </Switch>
       </div>

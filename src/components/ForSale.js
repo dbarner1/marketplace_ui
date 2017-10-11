@@ -8,7 +8,7 @@ class ForSale extends React.Component {
     return (
       <div className="ForSale">
           <div className="ForSaleHero">
-          <h2 className="ForSaleHeroHeader">Select an Aisle</h2>
+          <p>Shop the aisles</p>
           <Aisles aisle_json = { this.props.aisle_json } />
           </div>
           <div className="Products">

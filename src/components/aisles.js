@@ -2,57 +2,95 @@ import React from 'react';
 import {GridList, GridTile} from 'material-ui/GridList';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Link } from 'react-router-dom';
+import IconButton from 'material-ui/IconButton';
+import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import { Router, browserHistory } from 'react-router';
+import { Redirect } from 'react-router';
+import Products from './products.js'
 
 const styles = {
   root: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    width: 330
   },
   gridList: {
-    width: 325,
-    height: 450,
-    overflowY: 'auto',
+    display: 'flex',
+    flexWrap: 'nowrap',
+    overflowX: 'auto',
+    padding: 10
+  },
+  titleStyle: {
+    color: 'rgb(255, 255, 255)',
   },
 };
 
 var tilesData = [
     {
       img: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Fruits_and_vegetables_at_market.jpg',
-      title: 'Veggies'
+      title: 'Veggies',
+      url: 'https://barner-marketplace-api.herokuapp.com/aisles.json'
     },
     {
       img: 'https://upload.wikimedia.org/wikipedia/commons/1/13/HK_Kwun_Tong_Shui_Wo_Street_Market_Cold_Meats.JPG',
-      title: 'Meats'
+      title: 'Meats',
+      url: 'https://barner-marketplace-api.herokuapp.com/aisles.json'
     },
     {
       img: 'https://c1.staticflickr.com/9/8520/8508069576_c95a895136_b.jpg',
-      title: 'Canned Goods'
+      title: 'Canned Goods',
+      url: 'https://barner-marketplace-api.herokuapp.com/aisles.json'
     },
     {
       img: 'https://www.army.mil/e2/c/images/2013/02/07/281338/size0.jpg',
-      title: 'Prepared Foods'
+      title: 'Prepared Foods',
+      url: 'https://barner-marketplace-api.herokuapp.com/aisles.json'
     }
   ]
 
 class Aisles extends React.Component {
+  constructor() {
+    super();
+    this.figureOutKey = this.figureOutKey.bind(this);
+    this.state = {
+      aisleSelected:'',
+      urlSelected:''
+    };
+  }
+
+  figureOutKey(tile) {
+    this.setState({ aisleSelected: tile.title  });
+    this.setState({ urlSelected: tile.url });
+  }
+
   render() {
+    var currentproducts = this.state.aisleSelected ? <Products aisle={this.state.aisleSelected} urlSelected={this.state.urlSelected} /> : null;
+
     return (
-  <MuiThemeProvider>
-    <div id="aisles" className="centered" style={styles.root}>
-      <GridList cellHeight={160} style={styles.gridList}>
-        {tilesData.map((tile) => (
-          <Link key={tile.title} to={`/forsale/${tile.title}`}>
-            <GridTile title={tile.title}>
-              <img alt='aisle' src={tile.img} />
-            </GridTile>
-          </Link>
-        ))}
-      </GridList>
-    </div>
-  </MuiThemeProvider>
-)}
+      <MuiThemeProvider>
+        <div style={styles.root}>
+          <GridList id="aisles" style={styles.gridList} cols={2.2}>
+            {tilesData.map((tile) => (
+              <GridTile
+                onClick= { () => this.figureOutKey(tile) }
+                url={tile.url}
+                key={tile.img}
+                title={tile.title}
+                actionIcon={<IconButton><StarBorder color="rgb(0, 188, 212)" /></IconButton>}
+                titleStyle={styles.titleStyle}
+                titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
+              >
+                <img src={tile.img} />
+              </GridTile>
+            ))}
+          </GridList>
+          <div id="currentProduct">
+            { currentproducts }
+          </div>
+        </div>
+      </MuiThemeProvider>
+    )
+  }
 }
 
 
