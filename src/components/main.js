@@ -3,12 +3,14 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './Home.js';
 import ForSale from './ForSale.js';
 import Contact from './Contact.js';
+import Checkout from './checkout.js';
 
 class Main extends Component {
   constructor() {
     super();
     this.state = {
-      aisles: ''
+      aisles: '',
+      cart: 'testing'
     };
   }
 
@@ -19,10 +21,11 @@ class Main extends Component {
           <Route
               exact
               path='/'
-              render={routeProps => <Home {...routeProps} />}
+              render={ routeProps => <Home {...routeProps} /> }
           />
           <Route path='/forsale' component={ForSale}/>
           <Route path='/contact' component={Contact}/>
+          <Route path='/checkout' render={ routeProps => <Checkout {...routeProps} /> }/>
         </Switch>
       </div>
     );

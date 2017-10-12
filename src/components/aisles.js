@@ -1,11 +1,8 @@
 import React from 'react';
 import {GridList, GridTile} from 'material-ui/GridList';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Link } from 'react-router-dom';
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
-import { Router, browserHistory } from 'react-router';
-import { Redirect } from 'react-router';
 import Products from './products.js'
 
 const styles = {
@@ -29,22 +26,22 @@ var tilesData = [
     {
       img: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Fruits_and_vegetables_at_market.jpg',
       title: 'Veggies',
-      url: 'https://barner-marketplace-api.herokuapp.com/aisles.json'
+      url: 'https://barner-marketplace-api.herokuapp.com/products'
     },
     {
       img: 'https://upload.wikimedia.org/wikipedia/commons/1/13/HK_Kwun_Tong_Shui_Wo_Street_Market_Cold_Meats.JPG',
       title: 'Meats',
-      url: 'https://barner-marketplace-api.herokuapp.com/aisles.json'
+      url: 'https://barner-marketplace-api.herokuapp.com/products'
     },
     {
       img: 'https://c1.staticflickr.com/9/8520/8508069576_c95a895136_b.jpg',
       title: 'Canned Goods',
-      url: 'https://barner-marketplace-api.herokuapp.com/aisles.json'
+      url: 'https://barner-marketplace-api.herokuapp.com/products'
     },
     {
       img: 'https://www.army.mil/e2/c/images/2013/02/07/281338/size0.jpg',
       title: 'Prepared Foods',
-      url: 'https://barner-marketplace-api.herokuapp.com/aisles.json'
+      url: 'https://barner-marketplace-api.herokuapp.com/products'
     }
   ]
 
@@ -80,7 +77,7 @@ class Aisles extends React.Component {
                 titleStyle={styles.titleStyle}
                 titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
               >
-                <img src={tile.img} />
+                <img alt="aisle name" src={tile.img} />
               </GridTile>
             ))}
           </GridList>

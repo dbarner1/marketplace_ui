@@ -1,24 +1,36 @@
 import React from 'react';
 import '../stylesheets/index.css';
 import Button from './button.js';
-import Main from './main';
 
 class Products extends React.Component {
+  constructor() {
+    super();
+    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+    };
+  }
+
+  handleClick() {
+    console.log("added to cart");
+  }
+
+
   componentWillMount() {
     var Products = document.getElementsByClassName('Products');
-    var url = this.props.urlSelected
+    var url = this.props.urlSelected;
+    this.handleClick = this.handleClick.bind(this);
 
     fetch(url)
     .then(function(response) {return response.json();})
     .then(function(json) {
       json.forEach(function(name) {
         Products[0].innerHTML += "<div class='product'>"
-                              + "<p>" + name.name + "</p>"
+                              + "<p class='productName'>" + name.name + "</p>"
+                              + "<p class='productDescription'>" + name.description + "</p>"
                               + "<img class='productImage' src='" + name.image + "'></img>"
-                              + ' '
-                              + "<p>" + name.description + "</p>"
                               + "<br/>"
-                              + "<p>" + name.price + "</p>"
+                              + "<div class='productPrice'><p>" + "$"+(name.price/100) + "</p>" + "</div>"
+                              +"<button onClick={ handleClick } class='addToCart'>Add to Cart</button>"
                               +"<br/>"
                               + "</div>";
       });
@@ -27,12 +39,11 @@ class Products extends React.Component {
 
   render() {
     return (
-      <div className="ForSale">
-          <div className="ForSaleHero">
+      <div className="">
+          <div className="">
           </div>
           <div className="Products">
              <p>{ this.props.aisle }</p>
-             <p>{ this.props.urlSelected }</p>
           </div>
       </div>
     )

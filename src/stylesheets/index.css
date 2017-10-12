@@ -157,12 +157,36 @@ PORTFOLIO**********************************
     .ForSale .Products button {
       width: 60vw; }
     .ForSale .Products .product {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
       border: 1px solid black;
-      width: 170px;
+      width: 95%;
+      background-color: rgba(0, 0, 0, 0.4);
       min-height: 170px;
       margin-top: 20px; }
+      .ForSale .Products .product .productName {
+        width: 100%;
+        margin-bottom: 10px; }
+      .ForSale .Products .product .productDescription {
+        width: 50%;
+        padding-top: 60px; }
+      .ForSale .Products .product .productPrice {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        color: white;
+        width: 100%; }
+      .ForSale .Products .product .addToCart {
+        height: 50px;
+        width: 100%;
+        background-color: white;
+        color: black; }
       .ForSale .Products .product .productImage {
-        width: 80%;
+        width: 150px;
+        height: 150px;
         display: block;
         margin: 0 auto;
         padding: 10px; }
