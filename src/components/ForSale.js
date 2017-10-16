@@ -11,9 +11,6 @@ class ForSale extends React.Component {
           <p>Shop the aisles</p>
           <Aisles aisle_json = { this.props.aisle_json } />
           </div>
-          <div className="Products">
-          </div>
-
       </div>
     )
   }

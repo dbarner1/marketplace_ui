@@ -50,8 +50,8 @@ class Aisles extends React.Component {
     super();
     this.figureOutKey = this.figureOutKey.bind(this);
     this.state = {
-      aisleSelected:'',
-      urlSelected:''
+      aisleSelected:'Canned Goods',
+      urlSelected:'https://barner-marketplace-api.herokuapp.com/products'
     };
   }
 
@@ -61,7 +61,6 @@ class Aisles extends React.Component {
   }
 
   render() {
-    var currentproducts = this.state.aisleSelected ? <Products aisle={this.state.aisleSelected} urlSelected={this.state.urlSelected} /> : null;
 
     return (
       <MuiThemeProvider>
@@ -82,7 +81,7 @@ class Aisles extends React.Component {
             ))}
           </GridList>
           <div id="currentProduct">
-            { currentproducts }
+            <Products aisleSelected={this.state.aisleSelected} urlSelected={this.state.urlSelected} />
           </div>
         </div>
       </MuiThemeProvider>

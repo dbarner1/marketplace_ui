@@ -6,6 +6,8 @@ class Products extends React.Component {
     super();
     this.handleClick = this.handleClick.bind(this);
     this.state = {
+      aisleSelected:'',
+      urlSelected:'https://barner-marketplace-api.herokuapp.com/products'
     };
   }
 
@@ -13,14 +15,17 @@ class Products extends React.Component {
     console.log("added to cart");
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ urlSelected: nextProps.urlSelected });
+    this.setState({ aisleSelected: nextProps.aisleSelected });
 
-  componentWillMount() {
     var Products = document.getElementsByClassName('Products');
-    var url = this.props.urlSelected;
+    var url = this.state.urlSelected;
     this.handleClick = this.handleClick.bind(this);
 
     fetch(url)
     .then(function(response) {return response.json();})
+    .then(Products[0].innerHTML = '')
     .then(function(json) {
       json.forEach(function(name) {
         Products[0].innerHTML += "<div class='product'>"
@@ -36,14 +41,13 @@ class Products extends React.Component {
     })
   }
 
+
   render() {
     return (
-      <div className="">
-          <div className="">
-          </div>
-          <div className="Products">
-             <p>{ this.props.aisle }</p>
-          </div>
+      <div>
+        <p>{ this.state.aisleSelected }</p>
+        <div className="Products">
+        </div>
       </div>
     )
   }
