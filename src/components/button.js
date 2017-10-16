@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 class Button extends React.Component {
   render() {
     return (
-        <a className="waves-effect waves-light btn">{ this.props.text }</a>
+        <a>{ this.props.text }</a>
     )
   }
 }

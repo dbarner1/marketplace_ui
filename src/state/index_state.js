@@ -39,3 +39,9 @@ componentDidMount() {
   .then(json => {
     this.setState({aisles: json})
   }))
+
+
+  ProductsInCart[0].innerHTML = "<div>"
+  ProductsInCart[0].innerHTML +=  product
+  ProductsInCart[0].innerHTML += "</div>"
+  ProductsInCart[0].innerHTML += <br/>

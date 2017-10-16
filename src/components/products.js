@@ -1,6 +1,5 @@
 import React from 'react';
 import '../stylesheets/index.css';
-import Button from './button.js';
 
 class Products extends React.Component {
   constructor() {
@@ -29,8 +28,8 @@ class Products extends React.Component {
                               + "<p class='productDescription'>" + name.description + "</p>"
                               + "<img class='productImage' src='" + name.image + "'></img>"
                               + "<br/>"
-                              + "<div class='productPrice'><p>" + "$"+(name.price/100) + "</p>" + "</div>"
-                              +"<button onClick={ handleClick } class='addToCart'>Add to Cart</button>"
+                              + "<div class='productPrice'><p>$"+(name.price/100) + "</p></div>"
+                              +"<button onClick={ handleClick } className='addToCart'>Add to Cart</button>"
                               +"<br/>"
                               + "</div>";
       });

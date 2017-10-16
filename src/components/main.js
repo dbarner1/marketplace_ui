@@ -10,7 +10,7 @@ class Main extends Component {
     super();
     this.state = {
       aisles: '',
-      cart: 'testing'
+      cart: ['testing',"testing2"]
     };
   }
 
@@ -25,7 +25,7 @@ class Main extends Component {
           />
           <Route path='/forsale' component={ForSale}/>
           <Route path='/contact' component={Contact}/>
-          <Route path='/checkout' render={ routeProps => <Checkout {...routeProps} /> }/>
+          <Route path='/checkout' render={ routeProps => <Checkout cart={this.state.cart} /> }/>
         </Switch>
       </div>
     );

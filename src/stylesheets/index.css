@@ -192,6 +192,22 @@ PORTFOLIO**********************************
         padding: 10px; }
 
 /******************************************
+Cart Page*******************************
+******************************************/
+.Checkout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .Checkout .checkoutButton {
+    margin-top: 30px;
+    background-color: orange;
+    width: 90%; }
+  .Checkout .ProductsInCart {
+    margin-top: 100px;
+    border: 1px solid red; }
+
+/******************************************
 Contact Page*******************************
 ******************************************/
 #contact {
