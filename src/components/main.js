@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './Home.js';
 import ForSale from './ForSale.js';
 import Contact from './Contact.js';
-import Checkout from './Checkout.js';
+import Checkout from './checkout.js';
 
 class Main extends Component {
   constructor() {
