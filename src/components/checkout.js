@@ -1,6 +1,5 @@
 import React from 'react';
 import '../stylesheets/index.css';
-import Button from './button.js';
 
 class Checkout extends React.Component {
   constructor() {
@@ -12,9 +11,11 @@ class Checkout extends React.Component {
   componentDidMount() {
     var cart = this.props.cart;
 
-var ProductsInCart = document.getElementsByClassName('ProductsInCart');
-    cart.forEach(function(product) {
-        ProductsInCart.innerHTML += "Hello!";
+   var ProductsInCart = document.getElementsByClassName('ProductsInCart')[0];
+
+     cart.forEach(function(product) {
+       ProductsInCart.innerHTML += product;
+       ProductsInCart.innerHTML += "<br/>";
      })
   }
 
@@ -22,9 +23,8 @@ var ProductsInCart = document.getElementsByClassName('ProductsInCart');
   render() {
     return (
       <div className="Checkout">
-          <p>This is the checkout page.</p>
         <div className="Products">
-        <p>These are the items in your cart!</p>
+        <p>Please verify your cart items to continue to checkout.</p>
         <div className="ProductsInCart">
         </div>
         <div className="SubTotal">

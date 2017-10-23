@@ -1,8 +1,6 @@
 import React from 'react';
 import {GridList, GridTile} from 'material-ui/GridList';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import IconButton from 'material-ui/IconButton';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import Products from './products.js'
 
 const styles = {
@@ -15,7 +13,7 @@ const styles = {
     display: 'flex',
     flexWrap: 'nowrap',
     overflowX: 'auto',
-    padding: 10
+    padding: 5
   },
   titleStyle: {
     color: 'rgb(255, 255, 255)',
@@ -49,10 +47,21 @@ class Aisles extends React.Component {
   constructor() {
     super();
     this.figureOutKey = this.figureOutKey.bind(this);
+    this.addProduct = this.addProduct.bind(this);
     this.state = {
-      aisleSelected:'Canned Goods',
-      urlSelected:'https://barner-marketplace-api.herokuapp.com/products'
+      aisleSelected:'',
+      urlSelected:'https://barner-marketplace-api.herokuapp.com/products',
+      cart_aisles: []
     };
+  }
+
+  addProduct(e) {
+    var cart_array = this.state.cart_aisles;
+    cart_array.push("yo");
+
+    this.setState({
+      cart_aisles: cart_array
+    })
   }
 
   figureOutKey(tile) {
@@ -63,28 +72,29 @@ class Aisles extends React.Component {
   render() {
 
     return (
-      <MuiThemeProvider>
-        <div style={styles.root}>
-          <GridList id="aisles" style={styles.gridList} cols={2.2}>
-            {tilesData.map((tile) => (
-              <GridTile
-                onClick= { () => this.figureOutKey(tile) }
-                url={tile.url}
-                key={tile.img}
-                title={tile.title}
-                actionIcon={<IconButton><StarBorder color="rgb(0, 188, 212)" /></IconButton>}
-                titleStyle={styles.titleStyle}
-                titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
-              >
-                <img alt="aisle name" src={tile.img} />
-              </GridTile>
-            ))}
-          </GridList>
-          <div id="currentProduct">
-            <Products aisleSelected={this.state.aisleSelected} urlSelected={this.state.urlSelected} />
+      <div>
+        <MuiThemeProvider>
+          <div style={styles.root}>
+            <GridList id="aisles" style={styles.gridList} cols={2.2}>
+              {tilesData.map((tile) => (
+                <GridTile
+                  onClick= { () => this.figureOutKey(tile) }
+                  url={tile.url}
+                  key={tile.img}
+                  title={tile.title}
+                  titleStyle={styles.titleStyle}
+                  titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
+                >
+                  <img alt="aisle name" src={tile.img} />
+                </GridTile>
+              ))}
+            </GridList>
           </div>
+        </MuiThemeProvider>
+        <div id="currentProduct">
+          <Products addProduct = {this.addProduct} aisleSelected={this.state.aisleSelected} urlSelected={this.state.urlSelected} />
         </div>
-      </MuiThemeProvider>
+      </div>
     )
   }
 }

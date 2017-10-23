@@ -4,15 +4,10 @@ import '../stylesheets/index.css';
 class Products extends React.Component {
   constructor() {
     super();
-    this.handleClick = this.handleClick.bind(this);
     this.state = {
-      aisleSelected:'',
+      aisleSelected:'Select an aisle above.',
       urlSelected:'https://barner-marketplace-api.herokuapp.com/products'
     };
-  }
-
-  handleClick() {
-    console.log("added to cart");
   }
 
   componentWillReceiveProps(nextProps) {
@@ -20,8 +15,8 @@ class Products extends React.Component {
     this.setState({ aisleSelected: nextProps.aisleSelected });
 
     var Products = document.getElementsByClassName('Products');
+
     var url = this.state.urlSelected;
-    this.handleClick = this.handleClick.bind(this);
 
     fetch(url)
     .then(function(response) {return response.json();})
@@ -34,7 +29,7 @@ class Products extends React.Component {
                               + "<img class='productImage' src='" + name.image + "'></img>"
                               + "<br/>"
                               + "<div class='productPrice'><p>$"+(name.price/100) + "</p></div>"
-                              +"<button onClick={ handleClick } className='addToCart'>Add to Cart</button>"
+                              + "<button class='addToCartButton'>Just Testing</button>"
                               +"<br/>"
                               + "</div>";
       });
@@ -45,7 +40,8 @@ class Products extends React.Component {
   render() {
     return (
       <div>
-        <p>{ this.state.aisleSelected }</p>
+        <p className='aisleTitle'>{ this.state.aisleSelected }</p>
+          <button onClick = { this.props.addProduct }> Just Testing</button>
         <div className="Products">
         </div>
       </div>
