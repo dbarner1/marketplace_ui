@@ -16,15 +16,13 @@ class Main extends Component {
   }
 
   addProduct(new_product) {
-
     var cart_array = this.state.cart;
-    cart_array.push("hi");
+    cart_array.push(new_product);
 
     this.setState({
       cart: cart_array
     })
   }
-
 
   render() {
     return (
@@ -35,10 +33,11 @@ class Main extends Component {
               path='/'
               render={ routeProps => <Home {...routeProps} /> }
           />
-          <Route path='/forsale' render={ routeProps => <ForSale addProduct={this.addProduct} /> }/>
+          <Route path='/forsale' render={ routeProps => <ForSale /> }/>
           <Route path='/contact' component={Contact}/>
           <Route path='/checkout' render={ routeProps => <Checkout cart={this.state.cart} /> }/>
         </Switch>
+        <script type="text/javascript" src="../src/state/index_state.js"></script>
       </div>
     );
   }

@@ -5,28 +5,23 @@ import Aisles from './aisles';
 class ForSale extends React.Component {
   constructor() {
     super();
-    this.addProduct = this.addProduct.bind(this);
+    this.updateNewProduct = this.updateNewProduct.bind(this);
     this.state = {
       aisles: '',
-      cart_forsale: []
+      new_product: ''
     };
   }
 
-  addProduct(e) {
-    var cart_array = this.state.cart_forsale;
-    cart_array.push("added_for_sale");
-
-    this.setState({
-      cart_forsale: cart_array
-    })
+  updateNewProduct(new_product) {
+    this.setState({ new_product: new_product  });
   }
 
   render() {
     return (
       <div className="ForSale">
-          <div className="ForSaleHero">
-          <Aisles addProduct={this.addProduct} aisle_json = { this.props.aisle_json } />
-          </div>
+        <div className="ForSaleHero">
+          <Aisles updateNewProduct ={ this.updateNewProduct }  aisle_json = { this.props.aisle_json } />
+        </div>
       </div>
     )
   }

@@ -47,21 +47,12 @@ class Aisles extends React.Component {
   constructor() {
     super();
     this.figureOutKey = this.figureOutKey.bind(this);
-    this.addProduct = this.addProduct.bind(this);
+    this.updateNewProduct = this.updateNewProduct.bind(this);
     this.state = {
       aisleSelected:'',
       urlSelected:'https://barner-marketplace-api.herokuapp.com/products',
-      cart_aisles: []
+      new_product: ''
     };
-  }
-
-  addProduct(e) {
-    var cart_array = this.state.cart_aisles;
-    cart_array.push("yo");
-
-    this.setState({
-      cart_aisles: cart_array
-    })
   }
 
   figureOutKey(tile) {
@@ -69,8 +60,11 @@ class Aisles extends React.Component {
     this.setState({ urlSelected: tile.url });
   }
 
-  render() {
+  updateNewProduct(new_product_name) {
+    this.setState({ new_product: new_product_name  });
+  }
 
+  render() {
     return (
       <div>
         <MuiThemeProvider>
@@ -92,7 +86,7 @@ class Aisles extends React.Component {
           </div>
         </MuiThemeProvider>
         <div id="currentProduct">
-          <Products addProduct = {this.addProduct} aisleSelected={this.state.aisleSelected} urlSelected={this.state.urlSelected} />
+          <Products updateNewProduct = {this.updateNewProduct} aisleSelected={this.state.aisleSelected} urlSelected={this.state.urlSelected} />
         </div>
       </div>
     )

@@ -1,47 +1,32 @@
-function AislesAPIResponse(state, action) {
-  if (typeof state === 'undefined') {
-    return 0
-  }
+import { createStore } from 'redux';
+
+function counter(state = 0, action) {
   switch (action.type) {
-    case 'success':
-      return json
-    case 'failure':
-      return nil
-    default:
-      return nil
+  case 'practice':
+    return state + 1
+  case 'for real':
+    return state - 1
+  default:
+    return state
   }
 }
 
-var store = Redux.createStore(AislesAPIResponse);
+var store = Redux.createStore(
+  reducer, 
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
-var heroBottomTextEL = document.getElementById('HeroBottomText') //displays state change.
+var result = document.getElementById("result");
+
 function render() {
-  heroBottomTextEL.innerHTML = store.getState().toString()
+  result.innerHTML = store.getState().toString()
 }
+
 render()
 store.subscribe(render)
 
-
-document.getElementById('aisles')
-  .addEventListener('load', function () {
-
-    store.dispatch({ type: 'success' })
+document.getElementById("HeroButton")
+  .addEventListener("click", function () {
+    store.dispatch({type: 'practice'})
+    console.log(store.getState().toString());
   })
-
-
-
-componentDidMount() {
-
-}
-
-(fetch('https://barner-marketplace-api.herokuapp.com/aisles.json')
-  .then(response => response.json())
-  .then(json => {
-    this.setState({aisles: json})
-  }))
-
-
-  ProductsInCart[0].innerHTML = "<div>"
-  ProductsInCart[0].innerHTML +=  product
-  ProductsInCart[0].innerHTML += "</div>"
-  ProductsInCart[0].innerHTML += <br/>
