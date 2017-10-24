@@ -1,32 +1,31 @@
 import { createStore } from 'redux';
 
-function counter(state = 0, action) {
+function ProductsInCart(state = [], action, product) {
   switch (action.type) {
-  case 'practice':
-    return state + 1
-  case 'for real':
-    return state - 1
+  case 'addItem':
+    return state + [product]
+  case 'deleteItem':
+    return state + [product]
+  case 'clearCart'
+    return state = 0
   default:
     return state
   }
 }
 
-var store = Redux.createStore(
-  reducer, 
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+var store = Redux.createStore(ProductsInCart)
 )
 
-var result = document.getElementById("result");
+var ProductsInCart = document.getElementById("ProductsInCart");
 
 function render() {
-  result.innerHTML = store.getState().toString()
+  ProductsInCart.innerHTML = store.getState().toString()
 }
 
 render()
-store.subscribe(render)
+store.subscribe(ProductsInCart)
 
-document.getElementById("HeroButton")
+document.getElementById("AddProductButton")
   .addEventListener("click", function () {
-    store.dispatch({type: 'practice'})
-    console.log(store.getState().toString());
+    store.dispatch({type: 'addItem'})
   })
