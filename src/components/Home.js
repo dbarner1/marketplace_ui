@@ -2,7 +2,7 @@ import React from 'react';
 import '../stylesheets/index.css';
 import Logo from '../images/logo.png';
 import { Link } from 'react-router-dom';
-import RaisedButton from './RaisedButton';
+import RaisedButtonHero from './RaisedButton';
 
 class Home extends React.Component {
 
@@ -14,7 +14,7 @@ class Home extends React.Component {
           <h4>From Sun Up</h4>
           <h4>To Fork Down</h4>
         </div>
-        <Link to='/forsale'><RaisedButton id="HeroButton" className="HeroButton"  /></Link>
+        <Link to='/forsale'><RaisedButtonHero id="HeroButton" label="Buy Groceries" className="HeroButton"  /></Link>
         <div id="HeroBottomText" className="HeroBottomText">
           <p>Never processed. Never compromised.</p>
           <p>Always.</p>

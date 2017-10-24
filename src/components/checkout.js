@@ -1,5 +1,7 @@
 import React from 'react';
 import '../stylesheets/index.css';
+import Button from './button';
+import { Link } from 'react-router-dom';
 
 class Checkout extends React.Component {
   constructor() {
@@ -11,7 +13,7 @@ class Checkout extends React.Component {
   componentDidMount() {
     var cart = this.props.cart;
 
-   var ProductsInCart = document.getElementsByClassName('ProductsInCart')[0];
+    var ProductsInCart = document.getElementsByClassName('ProductsInCart')[0];
 
      cart.forEach(function(product) {
        ProductsInCart.innerHTML += product;
@@ -19,18 +21,24 @@ class Checkout extends React.Component {
      })
   }
 
+  handleClick() {
+    alert("Sorry, online ordering is currently not available.");
+  }
+
 
   render() {
     return (
       <div className="Checkout">
         <div className="Products">
-        <p>Please verify your cart items to continue to checkout.</p>
+        <h3>Please verify your cart items to continue to checkout.</h3>
         <div className="ProductsInCart">
+        <p>Your cart is empty.</p>
+        <Link to='/ForSale'><p>Get shopping!</p></Link>
         </div>
         <div className="SubTotal">
         </div>
-        <div className="Submit">
-          <button className="checkoutButton">Submit to Real Foods</button>
+        <div  className="checkoutButton">
+          <a onClick={ this.handleClick }><Button text="Submit to Real Foods" /></a>
         </div>
 
         </div>

@@ -42,7 +42,6 @@ class Products extends React.Component {
     return (
       <div>
         <p className='aisleTitle'>{ this.state.aisleSelected }</p>
-          <button className="TemplateButton" onClick={ ()=>this.props.updateNewProduct("potatoMaster") }> Just Testing</button>
         <div className="Products">
         </div>
       </div>

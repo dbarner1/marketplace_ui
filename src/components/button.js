@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 class Button extends React.Component {
   render() {
     return (
-        <button>{ this.props.text }</button>
+        <button className = { this.props.classname }>{ this.props.text }</button>
     )
   }
 }

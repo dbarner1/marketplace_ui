@@ -209,21 +209,31 @@ Cart Page*******************************
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  padding: 10px;
+  text-align: center; }
+  .Checkout .Products {
+    padding-top: 40px; }
   .Checkout .checkoutButton {
-    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 50px;
     background-color: orange;
-    width: 90%; }
+    width: 90%;
+    text-align: center; }
   .Checkout .ProductsInCart {
     display: flex;
     flex-direction: column;
     text-align: center;
     padding: 20px;
     min-height: 20px;
-    margin: 0 auto;
-    margin-top: 80px;
-    color: white;
-    border: 1px solid red; }
+    margin: 40px auto;
+    width: 65%;
+    color: black;
+    background-color: white; }
 
 /******************************************
 Contact Page*******************************
