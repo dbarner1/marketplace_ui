@@ -7,13 +7,13 @@ const styles = {
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
   },
   gridList: {
     display: 'flex',
     flexWrap: 'nowrap',
     overflowX: 'auto',
-    padding: 5
+    margin: 0
   },
   titleStyle: {
     color: 'rgb(255, 255, 255)',
@@ -21,6 +21,21 @@ const styles = {
 };
 
 var tilesData = [
+  {
+    img: 'https://www.army.mil/e2/c/images/2013/02/07/281338/size0.jpg',
+    title: 'Prepared Foods',
+    url: 'https://barner-marketplace-api.herokuapp.com/products'
+  },
+  {
+    img: 'https://upload.wikimedia.org/wikipedia/commons/8/8a/27050121-milk-wallpapers.jpg',
+    title: 'Dairy',
+    url: 'https://barner-marketplace-api.herokuapp.com/products'
+  },
+  {
+    img: 'https://upload.wikimedia.org/wikipedia/commons/0/04/Candy_colors.jpg',
+    title: 'Candy',
+    url: 'https://barner-marketplace-api.herokuapp.com/products'
+  },
     {
       img: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Fruits_and_vegetables_at_market.jpg',
       title: 'Veggies',
@@ -34,11 +49,6 @@ var tilesData = [
     {
       img: 'https://c1.staticflickr.com/9/8520/8508069576_c95a895136_b.jpg',
       title: 'Canned Goods',
-      url: 'https://barner-marketplace-api.herokuapp.com/products'
-    },
-    {
-      img: 'https://www.army.mil/e2/c/images/2013/02/07/281338/size0.jpg',
-      title: 'Prepared Foods',
       url: 'https://barner-marketplace-api.herokuapp.com/products'
     }
   ]
@@ -69,7 +79,7 @@ class Aisles extends React.Component {
       <div>
         <MuiThemeProvider>
           <div style={styles.root}>
-            <GridList id="aisles" style={styles.gridList} cols={2.2}>
+            <GridList id="aisles" style={styles.gridList} cols={2}>
               {tilesData.map((tile) => (
                 <GridTile
                   onClick= { () => this.figureOutKey(tile) }

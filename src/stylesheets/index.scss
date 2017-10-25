@@ -27,6 +27,10 @@ p, h1, h2, h3, h4, h5, h6 {
     width: 100vw;
 }
 
+body {
+  width: 100%;
+}
+
 /******************************************
 Header*************************************
 ******************************************/
@@ -43,7 +47,7 @@ Header*************************************
 header {
   width: 100%;
   height: 10vh;
-  margin-bottom: 25px;
+  margin-bottom: 11px;
 
   nav {
     width: 100vw;
@@ -209,9 +213,8 @@ FOR SALE**********************************
   .aisleTitle {
     background-color:rgba(0,0,0,.3);
     margin: 0 auto;
-    width: 100%;
     color: white;
-    padding: 20px;
+    padding: 25px 0;
   }
 
   .ForSaleHeroHeader {
