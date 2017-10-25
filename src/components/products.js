@@ -1,4 +1,5 @@
 import React from 'react';
+import RaisedButtonHero from './RaisedButton';
 import '../stylesheets/index.css';
 
 class Products extends React.Component {

@@ -206,7 +206,6 @@ FOR SALE**********************************
   background-repeat:no-repeat;
   margin:0 auto;
   width: 100vw;
-  min-height: 100vh;
   text-align: center;
   color: black;
 
@@ -239,12 +238,13 @@ FOR SALE**********************************
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      border: 1px solid black;
+      border: 1px solid white;
       width: 100%;
       padding: 10px;
-      background-color:rgba(0,0,0,.6);
+      background-color:rgba(255,255,255,.6);
       min-height: 170px;
       margin-top: 20px;
+      color: black;
 
        .productName {
          width: 100%;
@@ -263,7 +263,7 @@ FOR SALE**********************************
          align-items: center;
          justify-content: center;
          padding: 10px;
-         color: white;
+         color: green;
          width: 100%;
        }
 
