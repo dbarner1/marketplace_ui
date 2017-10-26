@@ -137,6 +137,25 @@ CTA****************************************
 /******************************************
 FOR SALE**********************************
 ******************************************/
+.aisleSelectDiv {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: .5px solid grey; }
+
+.aisleSelectImage {
+  position: relative;
+  width: 150px;
+  height: 150px; }
+
+.aisleTitle {
+  width: 100%; }
+
+#allProductsScroll {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll; }
+
 .ForSale {
   display: flex;
   flex-direction: column;

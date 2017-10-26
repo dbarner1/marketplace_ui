@@ -1,5 +1,4 @@
 import React from 'react';
-import RaisedButtonHero from './RaisedButton';
 import '../stylesheets/index.css';
 
 class Products extends React.Component {
@@ -21,20 +20,20 @@ class Products extends React.Component {
       var url = this.state.urlSelected;
 
       fetch(url)
-      .then(function(response) {return response.json();})
-      .then(Products[0].innerHTML = '')
-      .then(function(json) {
-        json.forEach(function(name) {
-          Products[0].innerHTML += "<div class='product'>"
-                                + "<p class='productName'>" + name.name + "</p>"
-                                + "<p class='productDescription'>" + name.description + "</p>"
-                                + "<img class='productImage' src='" + name.image + "'></img>"
-                                + "<br/>"
-                                + "<div class='productPrice'><p>$"+(name.price/100) + "</p></div>"
-                                + "<button class='addToCartButton'>Add to Cart</button>"
-                                +"<br/>"
-                                + "</div>";
-        });
+        .then(function(response) {return response.json();})
+        .then(Products[0].innerHTML = '')
+        .then(function(json) {
+         json.forEach(function(name) {
+           Products[0].innerHTML += "<div class='product'>"
+                                 + "<p class='productName'>" + name.name + "</p>"
+                                 + "<p class='productDescription'>" + name.description + "</p>"
+                                 + "<img class='productImage' src='" + name.image + "'></img>"
+                                 + "<br/>"
+                                 + "<div class='productPrice'><p>$"+(name.price/100) + "</p></div>"
+                                 + "<button class='addToCartButton'>Add to Cart</button>"
+                                 +"<br/>"
+                                 + "</div>";
+         });
       })
     }
   }

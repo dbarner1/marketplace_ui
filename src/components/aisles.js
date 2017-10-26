@@ -1,26 +1,7 @@
 import React from 'react';
-import {GridList, GridTile} from 'material-ui/GridList';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Products from './products.js'
+import Products from './products.js';
 
-const styles = {
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-  },
-  gridList: {
-    display: 'flex',
-    flexWrap: 'nowrap',
-    overflowX: 'auto',
-    margin: 0
-  },
-  titleStyle: {
-    color: 'rgb(255, 255, 255)',
-  },
-};
-
-var tilesData = [
+var aislesData = [
   {
     img: 'https://www.army.mil/e2/c/images/2013/02/07/281338/size0.jpg',
     title: 'Prepared Foods',
@@ -58,6 +39,7 @@ class Aisles extends React.Component {
     super();
     this.figureOutKey = this.figureOutKey.bind(this);
     this.updateNewProduct = this.updateNewProduct.bind(this);
+
     this.state = {
       aisleSelected:'',
       urlSelected:'https://barner-marketplace-api.herokuapp.com/products',
@@ -65,36 +47,48 @@ class Aisles extends React.Component {
     };
   }
 
-  figureOutKey(tile) {
-    this.setState({ aisleSelected: tile.title  });
-    this.setState({ urlSelected: tile.url });
+  figureOutKey(aisle) {
+    this.setState({ aisleSelected: aisle.title  });
+    this.setState({ urlSelected: aisle.url });
   }
 
-  updateNewProduct(new_product_name) {
-    this.setState({ new_product: new_product_name  });
+  updateNewProduct(aisle) {
+    this.setState({ new_product: aisle.title  });
   }
+
+
+
+  componentDidMount() {
+    var allProductsScrollDiv = document.getElementById('allProductsScroll');
+    var itemsProcessed = 0;
+    const aislesThis = this;
+
+    aislesData.forEach(function (product) {
+       itemsProcessed++;
+       allProductsScrollDiv.innerHTML += "<div class='aisleSelectDiv'><img src="+product.img+" class='aisleSelectImage'/><p class='aisleTitle'>"+ product.title +" </p></div>"
+     });
+
+    var aisleSelectDivs = document.getElementsByClassName("aisleSelectDiv");
+
+    if(itemsProcessed === aisleSelectDivs.length) {
+      for(var i=0;i<aisleSelectDivs.length;i++) {
+
+        this.updateNewProduct = this.updateNewProduct.bind(this);
+
+        aisleSelectDivs[i].addEventListener("click", function(aisleDiv) {
+            aislesThis.figureOutKey(aisleDiv);
+            aislesThis.updateNewProduct(aisleDiv);
+         })
+      }
+    }
+
+   }
 
   render() {
     return (
       <div>
-        <MuiThemeProvider>
-          <div style={styles.root}>
-            <GridList id="aisles" style={styles.gridList} cols={2}>
-              {tilesData.map((tile) => (
-                <GridTile
-                  onClick= { () => this.figureOutKey(tile) }
-                  url={tile.url}
-                  key={tile.img}
-                  title={tile.title}
-                  titleStyle={styles.titleStyle}
-                  titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
-                >
-                  <img alt="aisle name" src={tile.img} />
-                </GridTile>
-              ))}
-            </GridList>
-          </div>
-        </MuiThemeProvider>
+        <div id="allProductsScroll">
+        </div>
         <div id="currentProduct">
           <Products updateNewProduct = {this.updateNewProduct} aisleSelected={this.state.aisleSelected} urlSelected={this.state.urlSelected} />
         </div>
