@@ -32,8 +32,8 @@ class Checkout extends React.Component {
         <div className="Products">
         <h3>Please verify your cart items to continue to checkout.</h3>
         <div className="ProductsInCart">
-        <p>Your cart is empty.</p>
-        <Link to='/ForSale'><p>Get shopping!</p></Link>
+        <p>Tomatoes | 2 | $1.20 |</p>
+        <p>Total    | 2 | $1.20 |</p>
         </div>
         <div className="SubTotal">
         </div>

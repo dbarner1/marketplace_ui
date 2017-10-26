@@ -59,10 +59,6 @@ header {
     justify-content: center;
     align-items: center;
 
-    .checkout {
-      color:rgba(255,153,0,1);
-    }
-
     .large {
       font-size: 40px;
     }
@@ -200,18 +196,22 @@ FOR SALE**********************************
 
 .aisleSelectDiv {
   background-color:rgba(255,255,255,.5);
-  border: .5px solid grey;
+  border-left: .1px solid grey;
 }
 
 .aisleSelectImage {
-  position: relative;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 
-.aisleTitle {
-  width: 100%;
+.aisleScrollTitle {
+  background-color:rgba(0,0,0,.3);
+  margin: 0 auto;
+  color: white;
+  padding: 10px 0;
+  margin-top:-4px;
 }
+
 
 #allProductsScroll {
   display: flex;
@@ -236,12 +236,8 @@ FOR SALE**********************************
     background-color:rgba(0,0,0,.3);
     margin: 0 auto;
     color: white;
-    padding: 25px 0;
-  }
-
-  .ForSaleHeroHeader {
-    width: 100%;
-    margin:20px 0;
+    padding: 10px 0;
+    margin-top:0px;
   }
 
   .Products {
@@ -342,7 +338,7 @@ Cart Page*******************************
   .ProductsInCart {
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: right;
     padding: 20px;
     min-height: 20px;
     margin: 40px auto;
@@ -358,18 +354,24 @@ Cart Page*******************************
 Contact Page*******************************
 ******************************************/
 
-#contact {
+#contactWrapper {
   display: flex;
   flex-direction: column;
   background-size:cover;
   background-position: center;
   background-repeat:no-repeat;
   margin:0 auto;
+  margin-top: 50px;
   width: 100vw;
   min-height: 100vh;
   text-align: center;
-}
 
-.wrapper {
-  margin-top:30vh;
+  h2 {
+    margin-bottom: 5px;
+  }
+
+  .large {
+    font-size: 80px;
+    color: orange;
+  }
 }

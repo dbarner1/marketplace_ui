@@ -65,7 +65,7 @@ class Aisles extends React.Component {
 
     aislesData.forEach(function (product) {
        itemsProcessed++;
-       allProductsScrollDiv.innerHTML += "<div class='aisleSelectDiv'><img src="+product.img+" class='aisleSelectImage'/><p class='aisleTitle'>"+ product.title +" </p></div>"
+       allProductsScrollDiv.innerHTML += "<div class='aisleSelectDiv'><img src="+product.img+" class='aisleSelectImage'/><p class='aisleScrollTitle'>"+ product.title +" </p></div>"
      });
 
     var aisleSelectDivs = document.getElementsByClassName("aisleSelectDiv");
